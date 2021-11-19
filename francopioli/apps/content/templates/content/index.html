@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+{% load lookup_tags %}
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+{#{% include 'content/symbols/grid.html' %}#}
+
+{% include 'content/symbols/navigation.html' %}
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="py-20">
+            <div class="flex justify-center flex-wrap-reverse">
+                <div class="w-full lg:w-1/2">
+                    <div class="w-full lg:w-10/12 py-10">
+                        <h1 class="text-4xl leading-tight font-futurabold mb-2">
+                            {{ textblocks|lookup:'startseite/abschnitt1/überschrift' }}
+                        </h1>
+                        <p class="text-gray-800 font-body mb-10">
+                            {{ textblocks|lookup:'startseite/abschnitt1/text' }}
+                        </p>
+                        <div class="flex items-start sm:items-center flex-wrap">
+                            {% url 'content:contact' as contact_url %}
+                            {% include 'content/symbols/primary-button.html' with text='Jetzt absichern' href=contact_url classes='mr-5 mb-5 sm:mb-0' %}
+                            <p class="font-body">
+                                Sie arbeiten bereits mit uns<br>
+                                zusammen? <a class="text-green-500 hover:text-green-700" href="{% url 'users:signin' %}">Hier einloggen</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full px-20 sm:px-0 sm:w-1/2">
+                    <div class="w-full flex items-center">
+                        {% svg 'img/dsgvo' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-green-100 shadow-lg relative">
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="py-8">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 md:col-span-3 mb-4 md:mb-0">
+                    <div class="flex lg:h-full items-center">
+                        <p class="">
+                            {{ textblocks|lookup:'startseite/abschnitt2/text'|linebreaksbr }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-9">
+                    <div class="flex justify-start sm:justify-between flex-wrap">
+                        <img class="max-h-full h-20 mr-4 sm:mr-0 mb-4 lg:mb-0" src="{% static 'img/image6.png' %}"
+                             alt="">
+                        <img class="max-h-full h-20 mr-4 sm:mr-0 mb-4 lg:mb-0" src="{% static 'img/image2.png' %}"
+                             alt="">
+                        <img class="max-h-full h-20 mr-4 sm:mr-0 mb-4 lg:mb-0" src="{% static 'img/image4.png' %}"
+                             alt="">
+                        <img class="max-h-full h-20 mb-4 sm:mr-0 lg:mb-0" src="{% static 'img/image3.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            {% include 'content/symbols/h2.html' with text='Sie haben keinen Datenschutz?' classes='mb-10' %}
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="mb-5 lg:mb-0">
+                    <div class="flex mb-3 items-center lg:items-start">
+                        <span class="text-4xl leading-tight w-12 mr-2 pr-2 flex-shrink-0 pt-1">
+                            {% svg 'libs/@fortawesome/fontawesome-free/svgs/solid/cogs' %}
+                        </span>
+                        {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt3/spalte1/überschrift' %}
+                    </div>
+                    <p>
+                        {{ textblocks|lookup:'startseite/abschnitt3/spalte1/text'|linebreaksbr }}
+                    </p>
+                </div>
+                <div class="mb-5 lg:mb-0">
+                    <div class="flex mb-3 items-center lg:items-start">
+                        <span class="text-4xl leading-tight w-12 mr-2 pr-2 flex-shrink-0 pt-1">
+                            {% svg 'libs/@fortawesome/fontawesome-free/svgs/solid/lock-open' %}
+                        </span>
+                        {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt3/spalte2/überschrift' %}
+                    </div>
+                    <p>
+                        {{ textblocks|lookup:'startseite/abschnitt3/spalte2/text'|linebreaksbr }}
+                    </p>
+                </div>
+                <div class="mb-5 lg:mb-0">
+                    <div class="flex mb-3 items-center lg:items-start">
+                        <span class="text-4xl leading-tight w-12 mr-2 pr-2 flex-shrink-0 pt-1">
+                            {% svg 'libs/@fortawesome/fontawesome-free/svgs/solid/gavel' %}
+                        </span>
+                        {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt3/spalte3/überschrift' %}
+                    </div>
+                    <p>
+                        {{ textblocks|lookup:'startseite/abschnitt3/spalte3/text'|linebreaksbr }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-100">
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            {% include 'content/symbols/h2.html' with text='Bei uns bekommen Sie:' classes='mb-10' %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="mb-5 lg:mb-0">
+                    {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt4/spalte1/überschrift' classes='mb-3' %}
+                    <p>
+                        {{ textblocks|lookup:'startseite/abschnitt4/spalte1/text'|linebreaksbr }}
+                    </p>
+                </div>
+                <div class="mb-5 lg:mb-0">
+                    {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt4/spalte2/überschrift' classes='mb-3' %}
+                    <p>
+                        {{ textblocks|lookup:'startseite/abschnitt4/spalte2/text'|linebreaksbr }}
+                    </p>
+                </div>
+                <div class="mb-5 lg:mb-0">
+                    {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt4/spalte3/überschrift' classes='mb-3' %}
+                    <p>
+                        {{ textblocks|lookup:'startseite/abschnitt4/spalte3/text'|linebreaksbr }}
+                    </p>
+                </div>
+                <div class="mb-5 lg:mb-0">
+                    {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt4/spalte4/überschrift' classes='mb-3' %}
+                    <p>
+                        {{ textblocks|lookup:'startseite/abschnitt4/spalte4/text'|linebreaksbr }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="md:col-start-1 xl:col-start-2 md:col-span-5 col-start-2 col-span-6">
+                    <img src="{% static 'img/pioli_franco.opt.jpg' %}" alt="">
+                </div>
+                <div class="col-span-12 md:col-span-7 lg:col-span-6 lg:col-start-7 xl:col-span-5 xl:col-start-8">
+                    <div class="flex justify-center flex-col h-full">
+                        {% include 'content/symbols/h2.html' with text=textblocks|lookup:'startseite/abschnitt5/überschrift' classes='mb-10' %}
+                        <p class="mb-3">
+                            {{ textblocks|lookup:'startseite/abschnitt5/text'|linebreaksbr }}
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="mr-1 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                {{ textblocks|lookup:'startseite/abschnitt5/punkt1' }}
+                            </li>
+                            <li>
+                                <span class="mr-1 text-green-500">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                {{ textblocks|lookup:'startseite/abschnitt5/punkt2' }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-100">
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            {% include 'content/symbols/h2.html' with text=textblocks|lookup:'startseite/abschnitt6/überschrift' %}
+            <p class="mb-8 font-body">
+                {{ textblocks|lookup:'startseite/abschnitt6/text' }}
+            </p>
+            <div class="flex mb-5 items-start">
+                <span class="text-6xl leading-none font-futuraheavy text-green-500 w-16 flex-shrink-0 text-center">1</span>
+                <div>
+                    {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt6/schritt1/überschrift' classes='mb-1' %}
+                    <p class="font-body">
+                        {{ textblocks|lookup:'startseite/abschnitt6/schritt1/text' }}
+                    </p>
+                </div>
+            </div>
+            <div class="flex mb-5 items-start">
+                <span class="text-6xl leading-none font-futuraheavy text-green-500 w-16 flex-shrink-0 text-center">2</span>
+                <div>
+                    {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt6/schritt2/überschrift' classes='mb-1' %}
+                    <p class="font-body">
+                        {{ textblocks|lookup:'startseite/abschnitt6/schritt2/text' }}
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <span class="text-6xl leading-none font-futuraheavy text-green-500 w-16 flex-shrink-0 text-center">3</span>
+                <div>
+                    {% include 'content/symbols/h3.html' with text=textblocks|lookup:'startseite/abschnitt6/schritt3/überschrift' classes='mb-1' %}
+                    <p class="font-body">
+                        {{ textblocks|lookup:'startseite/abschnitt6/schritt3/text' }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'content/symbols/cta.html' %}
+
+{% include 'content/symbols/footer.html' %}
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

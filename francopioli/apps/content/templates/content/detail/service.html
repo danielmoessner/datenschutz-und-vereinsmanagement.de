@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{% load martortags %}
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' with title=service.name %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+{#{% include 'content/symbols/grid.html' %}#}
+
+{% include 'content/symbols/navigation.html' %}
+
+{% include 'content/symbols/subheader.html' with text='Leistung' title=service.name %}
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 lg:col-span-8 lg:col-start-3">
+                    <article class="markdown">
+                        {{ service.content|safe_markdown }}
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'content/symbols/cta.html' %}
+
+{% include 'content/symbols/footer.html' %}
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

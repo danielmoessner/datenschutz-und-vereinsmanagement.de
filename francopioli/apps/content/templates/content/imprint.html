@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+{% include 'content/symbols/navigation.html' %}
+
+{% include 'content/symbols/subheader.html' with text='Impressum' title='Rechtliche Informationen' %}
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-8 col-start-3">
+                    {{ textblocks.impressum|linebreaksbr }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'content/symbols/cta.html' %}
+
+{% include 'content/symbols/footer.html' %}
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

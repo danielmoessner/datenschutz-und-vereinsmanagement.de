@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <section class="">
+        <div class="container d-flex flex-column">
+            <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+                <div class="col-12 col-md-6 col-lg-6 py-8 py-md-11">
+                    <h1 class="mb-4 font-weight-bold text-center">
+                        Hallo {{ user.first_name }} {{ user.last_name }}
+                    </h1>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'content:index' %}">Zur Startseite</a></li>
+                        <li><a href="{% url 'users:password_change' %}">Passwort ändern</a></li>
+                        <li><a href="{% url 'users:signout' %}">Abmelden</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

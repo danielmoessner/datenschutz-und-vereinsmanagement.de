@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+{#{% include 'content/symbols/grid.html' %}#}
+
+{% include 'content/symbols/navigation.html' %}
+
+{% if tag %}
+    {% include 'content/symbols/subheader.html' with text='Artikel' title='#'|add:tag.name %}
+{% else %}
+    {% include 'content/symbols/subheader.html' with text='Artikel' title='Spannende Beiträge' %}
+{% endif %}
+
+<section class="border-b-2 border-gray-100">
+    <div class="container px-4 sm:px-2 mx-auto">
+        {% include 'content/symbols/articles_breadcrumbs.html' %}
+    </div>
+</section>
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                {% for article in object_list %}
+                    {% include 'content/symbols/article_card.html' with classes='col-span-12 sm:col-span-6 lg:col-span-4' slug=article.slug title=article.title description=article.description image=article.image.url tags=article.tags.all %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'content/symbols/cta.html' %}
+
+{% include 'content/symbols/footer.html' %}
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

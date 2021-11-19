@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+{% load lookup_tags %}
+{% load martortags %}
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+{#{% include 'content/symbols/grid.html' %}#}
+
+{% include 'content/symbols/navigation.html' %}
+
+{% include 'content/symbols/subheader.html' with text=textblocks|lookup:'über-uns/abschnitt1/text' title=textblocks|lookup:'über-uns/abschnitt1/überschrift' %}
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 lg:col-span-8 lg:col-start-3">
+                    <h1 class="text-3xl font-futuramedium leading-tight text-center mb-24">
+                        {{ textblocks|lookup:'über-uns/abschnitt2/überschrift' }}
+                    </h1>
+                    <h2 class="text-2xl font-futurabold mb-2">{{ textblocks|lookup:'über-uns/abschnitt2/titel' }}</h2>
+                    <img class="w-1/2 mb-6" src="{% static 'img/pioli_franco.opt.jpg' %}" alt="">
+                    <h3 class="text-xl font-futurabold mb-2">{{ textblocks|lookup:'über-uns/abschnitt3/titel' }}</h3>
+                    <dl class="grid-cols-12 gap-1 md:gap-4 grid mb-6">
+                        {% for experience in experiences %}
+                            <dt class="col-span-12 md:col-span-3">
+                                {{ experience.time|linebreaksbr }}
+                            </dt>
+                            <dd class="col-span-12 sm:col-span-9 md:col-span-8 md:col-start-5 mb-6 md:mb-0">
+                                {{ experience.text|safe_markdown }}
+                            </dd>
+                        {% endfor %}
+                    </dl>
+                    <h3 class="text-xl font-futurabold mb-2">{{ textblocks|lookup:'über-uns/abschnitt4/titel' }}</h3>
+                    <dl class="grid-cols-12 gap-1 md:gap-4 grid mb-6">
+                        {% for education in educations %}
+                            <dt class="col-span-12 md:col-span-3">
+                                {{ education.time|linebreaksbr }}
+                            </dt>
+                            <dd class="col-span-12 sm:col-span-9 md:col-span-8 md:col-start-5 mb-6 md:mb-0">
+                                {{ education.text|safe_markdown }}
+                            </dd>
+                        {% endfor %}
+                    </dl>
+                    <h3 class="text-xl font-futurabold mb-1">{{ textblocks|lookup:'über-uns/abschnitt5/titel' }}</h3>
+                    <p class="mb-6">
+                        {{ textblocks|lookup:'über-uns/abschnitt5/text' }}
+                    </p>
+                    <h3 class="text-xl font-futurabold mb-1">{{ textblocks|lookup:'über-uns/abschnitt6/titel' }}</h3>
+                    <p>
+                        {{ textblocks|lookup:'über-uns/abschnitt6/text' }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'content/symbols/cta.html' %}
+
+{% include 'content/symbols/footer.html' %}
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

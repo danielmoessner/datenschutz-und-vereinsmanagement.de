@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+{#{% include 'content/symbols/grid.html' %}#}
+
+{% include 'content/symbols/navigation.html' %}
+
+{% include 'content/symbols/subheader.html' with text='Kontakt' title='Für die Zukunft absichern' %}
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="text-center col-span-12 md:col-span-6 lg:col-span-4 lg:col-start-2 mb-16 md:mb-0">
+                    {% include 'content/symbols/h2.html' with text='Telefon' classes='mb-4' %}
+                    <p class="mb-10">
+                        Rufen Sie jetzt an für eine IST-Analyse Ihres Vereins oder Unternehmens. <br>
+                        Telefon: 0179 1408990
+                    </p>
+                    {% include 'content/symbols/primary-button.html' with text='Anrufen' %}
+                </div>
+                <div class="text-center col-span-12 md:col-span-6 lg:col-span-4 lg:col-start-8">
+                    {% include 'content/symbols/h2.html' with text='E-Mail' classes='mb-4' %}
+                    <p class="mb-10">
+                        Schreiben Sie uns jetzt für eine IST-Analyse Ihres Vereins oder Unternehmens. <br>
+                        E-Mail: info@vereinsberatung-und-sportmanagement.de
+                    </p>
+                    {% include 'content/symbols/primary-button.html' with text='Schreiben' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4">
+                    {% include 'content/symbols/h2.html' with text='Formular' classes='text-center mb-2' %}
+                    <p class="mb-10 text-center">Senden Sie uns eine Nachricht direkt über die Webseite</p>
+                    {% if is_form_valid == True %}
+                        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 my-3">
+                            <p>
+                                Vielen Dank für Ihre Nachricht. Wir werden uns schnellstmöglich bei Ihnen melden.
+                            </p>
+                        </div>
+                    {% elif is_form_valid == False %}
+                        {% if form.errors %}
+                            <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mt-3 mb-10">
+                                <p>
+                                    Da ist leider etwas schief gegangen.
+                                    {{ form.errors|safe }}
+                                </p>
+                            </div>
+                        {% else %}
+                            <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 mt-3 mb-10">
+                                <p>
+                                    Da ist leider etwas schief gegangen. Bitte versuchen Sie es noch einmal oder
+                                    schreiben Sie uns eine E-Mail
+                                </p>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    {% if is_form_valid == False or is_form_valid == None %}
+                        <form class="w-full" method="post">
+                            {% csrf_token %}
+                            <div class="grid gap-4 grid-cols-2 mb-5">
+                                <div class="">
+                                    {% include 'content/symbols/label.html' with text='Vorname' for='firstname' %}
+                                    {% include 'content/symbols/input.html' with type='text' id='firstname' name='vorname' placeholder='Jane' value=form.vorname.value %}
+                                </div>
+                                <div class="">
+                                    {% include 'content/symbols/label.html' with text='Nachname' for='lastname' %}
+                                    {% include 'content/symbols/input.html' with type='text' id='lastname' name='nachname' placeholder='Muster' value=form.nachname.value %}
+                                </div>
+                            </div>
+                            <div class="mb-5">
+                                <div class="">
+                                    {% include 'content/symbols/label.html' with text='E-Mail' for='email' %}
+                                    {% include 'content/symbols/input.html' with type='text' id='email' name='email' placeholder='jane.muster@beispiel.de' value=form.email.value %}
+                                </div>
+                            </div>
+                            <div class="mb-5">
+                                <div class="">
+                                    {% include 'content/symbols/label.html' with text='Nachricht' for='message' %}
+                                    <textarea
+                                            class="h-24 appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:border-gray-300 focus:outline-none focus:bg-white placeholder-gray-400 text-left"
+                                            id="message" name="nachricht"
+                                            placeholder="Erzählen Sie uns mehr über Ihren Verein oder Ihr Unternehmen.">{{ form.nachricht.value|default_if_none:'' }}</textarea>
+                                </div>
+                            </div>
+                            <button class="text-base px-5 py-3 rounded bg-green-500 leading-none border text-white border-green-500 border-2 hover:bg-green-600 font-futuramedium"
+                                    type="submit">Absenden
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'content/symbols/footer.html' %}
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

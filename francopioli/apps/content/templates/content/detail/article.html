@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+{% load martortags %}
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' with title=article.title description=article.description %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+{#{% include 'content/symbols/grid.html' %}#}
+
+{% include 'content/symbols/navigation.html' %}
+
+{% include 'content/symbols/subheader.html' with text='Artikel' title=article.title classes='hidden' %}
+
+<section class="border-b-2 border-gray-100">
+    <div class="container px-4 sm:px-2 mx-auto">
+        {% include 'content/symbols/articles_breadcrumbs.html' %}
+    </div>
+</section>
+
+<section>
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 lg:col-span-8 lg:col-start-3">
+                    <article class="markdown">
+                        <div class="mb-10 text-right text-gray-400">{{ article.date }}</div>
+                        {{ article.content|safe_markdown }}
+                        <div class="mt-10 text-right text-gray-400">© {{ article.author }}</div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-100">
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="pt-20 pb-24">
+            {% include 'content/symbols/h2.html' with text='Weitere interessante Artikel' classes='mb-10' %}
+            <div class="grid grid-cols-12 gap-4">
+                {% for article in articles %}
+                    {% include 'content/symbols/article_card.html' with classes='col-span-12 md:col-span-6 lg:col-span-4' slug=article.slug title=article.title description=article.description image=article.image.url tags=article.tags.all %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'content/symbols/cta.html' %}
+
+{% include 'content/symbols/footer.html' %}
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

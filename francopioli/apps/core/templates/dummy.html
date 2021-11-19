@@ -1,0 +1,27 @@
+{% load static %}
+{% load svg %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include "partials/head.html" with pageTitle='Landkit' %}
+  </head>
+  <body>
+
+    <!-- MODALS
+     ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  -->
+    {% include "partials/modals.html" %}
+    
+    <!-- NAVBAR
+     ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  -->
+    {% include "partials/navbar.html" with classList='navbar-light bg-white' type='fluid' %}
+
+    <!-- FOOTER
+     ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  -->
+    {% include "partials/footer.html" with classList='bg-gray-200' %}
+
+    <!-- JAVASCRIPT
+     ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  -->
+    {% include "partials/scripts.html" %}
+      
+  </body>
+</html>
