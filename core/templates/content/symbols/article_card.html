@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="rounded overflow-hidden shadow-lg flex flex-col bg-white border {{ classes }}">
+    <a href="{% url 'content:article' slug %}"><img class="w-full" src="{{ image }}" alt="{{ title }}"></a>
+    <div class="flex justify-between flex-col h-full">
+        <div class="px-6 pt-4 pb-5">
+            <a href="{% url 'content:article' slug %}">
+                <div class="font-bold text-xl mb-2">{{ title }}</div>
+            </a>
+            <p class="text-gray-700 text-base">
+                {{ description }}
+            </p>
+        </div>
+        {#        <div class="px-6 py-4 pt-3 flex flex-wrap">#}
+        {#            {% for tag in tags %}#}
+        {#                <a class="mr-1 mt-1" href="{% url 'content:articles_tag' tag.slug %}"><span#}
+        {#                        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#{{ tag }}</span></a>#}
+        {#            {% endfor %}#}
+        {#        </div>#}
+    </div>
+</div>

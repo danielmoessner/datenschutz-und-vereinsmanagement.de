@@ -1,0 +1,64 @@
+{% load svg %}
+<nav class="bg-white border-b-2 border-gray-200 shadow">
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="flex items-center justify-between flex-wrap py-3">
+            <a href="{% url 'content:index' %}" class="block flex items-center w-3/5 sm:w-2/5 md:w-1/5 md:-ml-4">
+                {% svg 'img/francopiolilogo' %}
+            </a>
+            <div class="block lg:hidden">
+                <button class="flex items-center px-3 py-2 border rounded focus text-green-500 border-green-500 hover:text-gray-800 hover:border-gray-800"
+                        id="burger">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>
+                        Menü</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="w-full hidden lg:block flex-grow lg:flex lg:items-center lg:w-auto font-body" id="burger-ziel">
+                <div class="text-base lg:flex-grow text-left lg:text-right">
+                    <a href="{% url 'content:index' %}"
+                       class="block mt-4 lg:mt-0 lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300">
+                        Startseite
+                    </a>
+                    <a href="{% url 'content:about' %}"
+                       class="block mt-4 lg:mt-0 lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300">
+                        Über uns
+                    </a>
+                    <a href="{% url 'content:articles' %}"
+                       class="block mt-1 lg:mt-0 lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300">
+                        Vereinsmanagement
+                    </a>
+                    <div class="relative inline-block w-full lg:w-auto">
+                        <a class="block mt-1 lg:mt-0 lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300"
+                           href="#" id="weitere-leistungen">
+                            Unsere Leistungen
+                            <div class="inline-block transform rotate-90" id="weitere-leistungen-dreieck">
+                                <svg class="fill-current w-3 h-3" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 320 512">
+                                    <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+                                </svg>
+                            </div>
+
+                        </a>
+                        <div class="w-full rounded hidden absolute top-0 bg-white border-b-2 border-gray-200 transform translate-y-12 text-left shadow"
+                             id="weitere-leistungen-ziel">
+                            {% for service in services %}
+                                <a href="{% url 'content:service' service.slug %}"
+                                   class="block m-2 p-1 text-gray-800 text-gray-800 hover:text-black border-2 rounded border-transparent hover:border-gray-300">
+                                    {{ service.name }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <a href="{% url 'content:contact' %}"
+                       class="block lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300">
+                        Kontakt
+                    </a>
+                </div>
+                <a href="{% url 'content:contact' %}"
+                   class="text-base px-4 py-2 lg:inline-block hidden rounded bg-green-500 leading-none border text-white border-green-500 border-2 hover:bg-green-600 font-futuramedium">Jetzt
+                    absichern</a>
+            </div>
+        </div>
+    </div>
+</nav>

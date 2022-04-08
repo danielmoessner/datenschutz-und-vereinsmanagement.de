@@ -1,0 +1,12 @@
+# setup
+wheel
+# django
+Django==4.0.3
+# dev
+django-debug-toolbar==3.2.4
+# svg stuff
+django-inline-svg==0.1.1
+# editor
+django_ckeditor==6.3.0
+# images
+Pillow==9.1.0

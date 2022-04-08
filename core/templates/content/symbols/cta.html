@@ -1,0 +1,13 @@
+{% load lookup_tags %}
+
+<section class="bg-green-100 shadow-lg relative">
+    <div class="container px-4 sm:px-2 mx-auto">
+        <div class="py-8">
+            <div class="flex justify-between items-center lg:h-20">
+                <h2 class="text-3xl font-futurabold">{{ textblocks|lookup:'call-to-action/text' }}</h2>
+                {% url 'content:contact' as contact_url %}
+                {% include 'content/symbols/primary-button.html' with text='Jetzt absichern' href=contact_url classes='flex-shrink-0' %}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load svg %}
+
+<html lang="de">
+
+<head>
+    {% include 'content/symbols/head.html' %}
+</head>
+
+<body class="font-body">
+
+{% include 'content/symbols/auth_info.html' %}
+
+<div class="w-full h-screen flex justify-center items-center">
+    <div class="mb-64">
+        {% include 'content/symbols/h1.html' with text='Oh, oh!' %}
+        <p>
+            Da ist leider ein Fehler passiert. Bitte versuchen Sie es noch einmal.
+        </p>
+        <p class="mb-10">
+            Oder melden Sie sich bei uns falls der Fehler öfters auftritt: <br>
+            {% include 'content/symbols/link.html' with text='info@vereinsberatung-und-sportmanagement.de' %}
+        </p>
+        {% url 'content:index' as index_url %}
+        {% include 'content/symbols/secondary-button.html' with text='Zurück zur Startseite' href=index_url classes='mb-16' %}
+    </div>
+</div>
+
+{% include 'content/symbols/scripts.html' %}
+
+</body>
+
+</html>

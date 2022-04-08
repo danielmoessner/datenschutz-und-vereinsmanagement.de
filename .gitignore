@@ -1,0 +1,14 @@
+tmp/secrets.json
+tmp/venv/*
+node_modules/*
+static/css/main.css
+static/js/main.js
+tmp/media/*
+tmp/static/*
+.idea
+__pycache__
+.DS_STORE
+tmp/other/
+*.sqlite3
+static/dist/img/*
+static/dist/libs/*

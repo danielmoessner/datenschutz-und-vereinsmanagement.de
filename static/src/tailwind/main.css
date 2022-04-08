@@ -1,0 +1,64 @@
+/* base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1280px!important;
+    }
+}
+
+/* ------------------------ */
+/* |      Font Faces      | */
+/* ------------------------ */
+@font-face {
+    font-family: 'FuturaBold';
+    src: url('../fonts/FuturaBT-Bold/FuturaBT-Bold.eot');
+    src: url('../fonts/FuturaBT-Bold/FuturaBT-Bold.woff') format('woff'), url('../fonts/FuturaBT-Bold/FuturaBT-Bold.ttf') format('truetype'), url('../fonts/FuturaBT-Bold/FuturaBT-Bold.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaHeavy';
+    src: url('../fonts/FuturaBT-Heavy/FuturaBT-Heavy.eot');
+    src: url('../fonts/FuturaBT-Heavy/FuturaBT-Heavy.woff') format('woff'), url('../fonts/FuturaBT-Heavy/FuturaBT-Heavy.ttf') format('truetype'), url('../fonts/FuturaBT-Heavy/FuturaBT-Heavy.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaMedium';
+    src: url('../fonts/Futura_Medium_BT.eot');
+    src: url('../fonts/Futura_Medium_BT.woff') format('woff'), url('../fonts/Futura_Medium_BT.ttf') format('truetype'), url('../fonts/Futura_Medium_BT.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica.eot');
+    src: url('../fonts/Helvetica.woff') format('woff'), url('../fonts/Helvetica.ttf') format('truetype'), url('../fonts/Helvetica.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ------------------------ */
+/* |        General       | */
+/* ------------------------ */
+svg {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+/* Additional vertical padding used by kbd tag. */
+.py-05 {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+}
