@@ -10,5 +10,3 @@ __pycache__
 .DS_STORE
 tmp/other/
 *.sqlite3
-static/dist/img/*
-static/dist/libs/*
