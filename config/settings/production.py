@@ -23,7 +23,6 @@ EMAIL_PORT = 587
 
 # Logging
 # https://docs.djangoproject.com/en/dev/topics/logging/
-LOGGING_DIR = os.path.join(BASE_DIR, 'tmp')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -31,7 +30,7 @@ LOGGING = {
         'file': {
             'class': 'logging.FileHandler',
             'level': 'ERROR',
-            'filename': os.path.join(BASE_DIR, 'django.log'),
+            'filename': os.path.join(BASE_DIR, 'tmp/django.log'),
         },
         'console': {
             'class': 'logging.StreamHandler',
