@@ -10,7 +10,6 @@ from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
 # Secret settings
 
 with open(os.path.join(BASE_DIR, "tmp/secrets.json")) as f:
@@ -142,59 +141,116 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'tmp/media')
 # https://django-ckeditor.readthedocs.io/en/latest/#installation
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_UPLOAD_PATH = 'ckeditor/'
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         'skin': 'moono',
+CKEDITOR_CONFIGS = {
+    'default': {
+        "skin": "moono-lisa",
+        "toolbar_Basic": [["Source", "-", "Bold", "Italic"]],
+        "toolbar_Full": [
+            [
+                "Styles",
+                "Format",
+                'NumberedList',
+                'BulletedList',
+            ],
+            [
+                "Bold",
+                "Italic",
+                "Underline",
+                "Strike",
+            ],
+            [
+                "Undo",
+                "Redo",
+            ],
+            ["Link", "Unlink"],
+            ["Image", "Flash", "Table", "HorizontalRule"],
+            ["TextColor", "BGColor"],
+
+        ],
+        "toolbar": "Full",
+        "height": 600,
+        "width": 1000,
+        "filebrowserWindowWidth": 940,
+        "filebrowserWindowHeight": 725,
+#
 #         # 'skin': 'office2013',
-#         'toolbar_Basic': [
-#             ['Source', '-', 'Bold', 'Italic']
-#         ],
-#         'toolbar_YourCustomToolbarConfig': [
-#             {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
-#             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
-#             {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
-#             {'name': 'forms',
-#              'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
-#                        'HiddenField']},
-#             '/',
-#             {'name': 'basicstyles',
-#              'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
-#             {'name': 'paragraph',
-#              'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
-#                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
-#                        'Language']},
-#             {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
-#             {'name': 'insert',
-#              'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
-#             '/',
-#             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
-#             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
-#             {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
-#             {'name': 'about', 'items': ['About']},
-#             '/',  # put this to force next toolbar on new line
-#             {'name': 'yourcustomtools', 'items': [
-#                 # put the name of your editor.ui.addButton here
-#                 'Preview',
-#                 'Maximize',
-#             ]},
-#         ],
-#         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
-#         'tabSpaces': 4,
-#         'extraPlugins': ','.join([
-#             'uploadimage',  # the upload image feature
-#             # your extra plugins here
-#             'div',
-#             'autolink',
-#             'autoembed',
-#             'embedsemantic',
-#             'autogrow',
-#             # 'devtools',
-#             'widget',
-#             'lineutils',
-#             'clipboard',
-#             'dialog',
-#             'dialogui',
-#             'elementspath'
-#         ]),
-#     }
-# }
+#         # 'toolbar_Basic': [
+#         #     ['Source', '-', 'Bold', 'Italic']
+#         # ],
+#         # 'toolbar_YourCustomToolbarConfig': [
+#         #     {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+#         #     {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+#         #     {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+#         #     {'name': 'forms',
+#         #      'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
+#         #                'HiddenField']},
+#         #     '/',
+#         #     {'name': 'basicstyles',
+#         #      'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+#         #     {'name': 'paragraph',
+#         #      'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+#         #                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
+#         #                'Language']},
+#         #     {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+#         #     {'name': 'insert',
+#         #      'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
+#         #     '/',
+#         #     {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+#         #     {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+#         #     {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+#         #     {'name': 'about', 'items': ['About']},
+#         #     '/',  # put this to force next toolbar on new line
+#         #     {'name': 'yourcustomtools', 'items': [
+#         #         # put the name of your editor.ui.addButton here
+#         #         'Preview',
+#         #         'Maximize',
+#         #     ]},
+#         # ],
+#         # 'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
+#         # 'tabSpaces': 4,
+#
+        'extraPlugins': ','.join([
+            'uploadimage',  # the upload image feature
+            # your extra plugins here
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            # 'autogrow',
+            # 'devtools',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath'
+        ]),
+    }
+}
+DEFAULT_CONFIG = {
+    "skin": "moono-lisa",
+    "toolbar_Basic": [["Source", "-", "Bold", "Italic"]],
+    "toolbar_Full": [
+        [
+            "Styles",
+            "Format",
+            "Bold",
+            "Italic",
+            "Underline",
+            "Strike",
+            "SpellChecker",
+            "Undo",
+            "Redo",
+        ],
+        ["Link", "Unlink", "Anchor"],
+        ["Image", "Flash", "Table", "HorizontalRule"],
+        ["TextColor", "BGColor"],
+        ["Smiley", "SpecialChar"],
+        ["Source"],
+    ],
+    "toolbar": "Full",
+    "height": 291,
+    "width": 835,
+    "filebrowserWindowWidth": 940,
+    "filebrowserWindowHeight": 725,
+}
