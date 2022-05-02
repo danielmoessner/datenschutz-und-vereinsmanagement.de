@@ -503,7 +503,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .prose {
-  color: var(--tw-prose-body);
+  color: #2a2a2a;
   max-width: 65ch;
 }
 
@@ -522,7 +522,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .prose :where(strong):not(:where([class~="not-prose"] *)) {
-  color: var(--tw-prose-bold);
+  color: inherit;
   font-weight: 600;
 }
 
@@ -579,6 +579,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .prose :where(ul > li):not(:where([class~="not-prose"] *))::marker {
   color: var(--tw-prose-bullets);
+  background-color: #444444;
 }
 
 .prose :where(hr):not(:where([class~="not-prose"] *)) {
@@ -628,6 +629,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 2em;
   margin-bottom: 1em;
   line-height: 1.3333333;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 .prose :where(h2 strong):not(:where([class~="not-prose"] *)) {
@@ -773,7 +776,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-prose-links: #111827;
   --tw-prose-bold: #111827;
   --tw-prose-counters: #6b7280;
-  --tw-prose-bullets: #d1d5db;
+  --tw-prose-bullets: #5c5c5c;
   --tw-prose-hr: #e5e7eb;
   --tw-prose-quotes: #111827;
   --tw-prose-quote-borders: #e5e7eb;
@@ -850,7 +853,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .prose > :where(ul > li > *:first-child):not(:where([class~="not-prose"] *)) {
-  margin-top: 1.25em;
+  margin-top: 0;
 }
 
 .prose > :where(ul > li > *:last-child):not(:where([class~="not-prose"] *)) {
@@ -908,6 +911,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .prose > :where(:last-child):not(:where([class~="not-prose"] *)) {
   margin-bottom: 0;
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"] *))::before {
+  background-color: #374151;
+}
+
+.prose :where(ul > li > ul > li):not(:where([class~="not-prose"] *))::before {
+  background-color: #929292;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .static {

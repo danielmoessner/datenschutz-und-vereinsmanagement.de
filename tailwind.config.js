@@ -32,6 +32,13 @@ module.exports = {
                     '100': '#b2dab3',
                 }
             },
+            typography: ({theme}) => ({
+                DEFAULT: {
+                    css: {
+                        '--tw-prose-bullets': theme('colors.gray[600]'),
+                    },
+                },
+            }),
         },
     },
     variants: {},

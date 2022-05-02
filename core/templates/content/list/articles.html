@@ -18,7 +18,7 @@
 {% include 'content/symbols/navigation.html' %}
 
 {% if tag %}
-    {% include 'content/symbols/subheader.html' with text='Artikel' title='#'|add:tag.name %}
+    {% include 'content/symbols/subheader.html' with text='Artikel' title=tag.name %}
 {% else %}
     {% include 'content/symbols/subheader.html' with text='Artikel' title='Spannende Beiträge' %}
 {% endif %}

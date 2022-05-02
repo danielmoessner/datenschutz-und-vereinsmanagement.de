@@ -24,7 +24,11 @@
                        class="block mt-4 lg:mt-0 lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300">
                         Über uns
                     </a>
-                    <a href="{% url 'content:articles' %}"
+                    <a href="{% url 'content:articles' 'dsgvo' %}"
+                       class="block mt-1 lg:mt-0 lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300">
+                        Datenschutz / DSGVO
+                    </a>
+                    <a href="{% url 'content:articles' 'vereinsmanagement' %}"
                        class="block mt-1 lg:mt-0 lg:inline-block lg:mt-0 text-gray-800 hover:text-black lg:mr-4 border-2 p-1 rounded border-transparent hover:border-gray-300">
                         Vereinsmanagement
                     </a>

@@ -52,7 +52,7 @@ class Article(models.Model):
     slug = models.SlugField('Slug', help_text='Der Name klein geschrieben und ohne Leerzeichen oder Sonderzeichen.',
                             unique=True)
     date = models.DateField('Datum')
-    # tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag)
     description = models.TextField('Beschreibung')
     image = models.ImageField('Bild', upload_to='article-images/')
     content = fields.RichTextUploadingField('Inhalt')
