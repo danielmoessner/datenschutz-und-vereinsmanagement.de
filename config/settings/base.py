@@ -165,7 +165,8 @@ CKEDITOR_CONFIGS = {
             ["Link", "Unlink"],
             ["Image", "Flash", "Table", "HorizontalRule"],
             ["TextColor", "BGColor"],
-
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+            ['RemoveFormat']
         ],
         "toolbar": "Full",
         "height": 600,
