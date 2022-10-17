@@ -503,7 +503,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .prose {
-  color: #2a2a2a;
+  color: var(--tw-prose-body);
   max-width: 65ch;
 }
 
@@ -522,7 +522,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .prose :where(strong):not(:where([class~="not-prose"] *)) {
-  color: inherit;
+  color: var(--tw-prose-bold);
   font-weight: 600;
 }
 
@@ -579,7 +579,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .prose :where(ul > li):not(:where([class~="not-prose"] *))::marker {
   color: var(--tw-prose-bullets);
-  background-color: #444444;
 }
 
 .prose :where(hr):not(:where([class~="not-prose"] *)) {
@@ -629,8 +628,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 2em;
   margin-bottom: 1em;
   line-height: 1.3333333;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
 }
 
 .prose :where(h2 strong):not(:where([class~="not-prose"] *)) {
@@ -853,7 +850,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .prose > :where(ul > li > *:first-child):not(:where([class~="not-prose"] *)) {
-  margin-top: 0;
+  margin-top: 1.25em;
 }
 
 .prose > :where(ul > li > *:last-child):not(:where([class~="not-prose"] *)) {
@@ -911,14 +908,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .prose > :where(:last-child):not(:where([class~="not-prose"] *)) {
   margin-bottom: 0;
-}
-
-.prose :where(ul > li):not(:where([class~="not-prose"] *))::before {
-  background-color: #374151;
-}
-
-.prose :where(ul > li > ul > li):not(:where([class~="not-prose"] *))::before {
-  background-color: #929292;
 }
 
 .sr-only {
@@ -1147,6 +1136,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-h-full {
   max-height: 100%;
+}
+
+.min-h-\[50vh\] {
+  min-height: 50vh;
 }
 
 .w-1\/2 {
